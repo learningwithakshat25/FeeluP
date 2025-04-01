@@ -1,0 +1,25 @@
+import React from 'react'
+import { Link } from "react-router";
+
+const NavBar = () => {
+  return (
+    <div className="main sticky top-0 w-screen bg-white">
+    <div className='main-child w-full p-4 h-fit flex flex-row items-center justify-between bg-white text-black container mx-auto '>
+      <Link to='/' ><h1 className='font-semibold text-red-700 text-2xl '>FeeluP</h1></Link>
+      <div className="nav-right flex flex-row items-center justify-center gap-10">
+        <ul className='flex flex-row items-center justify-center gap-10 font-semibold'>
+          <li>About</li>
+          <li>Contact</li>
+          <li>Blog</li>
+        </ul>
+        <div className="button flex flex-row items-center justify-center gap-10 ">
+        <Link to='/login'><button className='bg-[#B60000] px-4 py-2 rounded-lg text-white cursor-pointer'>Log in</button></Link>
+        <Link to='/register'><button className='bg-[#E2E2E2] px-4 py-2 rounded-lg text-black cursor-pointer'>Sign up</button></Link>
+        </div>
+      </div>
+    </div>
+    </div>
+  )
+}
+
+export default NavBar
