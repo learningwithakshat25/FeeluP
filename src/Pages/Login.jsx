@@ -9,17 +9,36 @@ const Login = () => {
   const navigate = useNavigate();
   
 
+   const isLogged = async ()=>{
+    const userData = {
+      email: email,
+      password: password
+    };
+    const response =  await axios.post('http://localhost:3000/login', userData)
+    .then((result)=>{
+      console.log(result);
+      navigate('/profile')  ;
+    })
+    console.log(response);
+  }
   const submitHandler =async (e)=>{
       e.preventDefault();
       setemail('');
       setpassword('');
       console.log(email, password);
-      await axios.post('http://localhost:3000/login', {email,password})
-      .then((result) => console.log(result))
-      navigate('/profile')
-      .catch(err => console.log(err)
-      )
-  }
+      isLogged();
+    
+      
+      // .then((e)=>{
+      //   console.log(e.data);
+        // navigate('/profile')
+      
+      
+      
+      // .then((result) => console.log(result.data))
+      // .catch(err => console.log(err)
+      // )
+    }
   return (
     <div className='main w-screen bg-[#EBC399] flex flex-row items-center justify-center'>
         <div className="left w-1/2">

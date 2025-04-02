@@ -17,11 +17,19 @@ const Signup = () => {
     setemail('');
     setpassword('')
     console.log(name, username, email, password);
-    await axios.post('http://localhost:3000/register', {name, username, email,password})
+    const userData = {
+      name: name,
+      username: username,
+      email: email,
+      password: password
+    };
+
+    const response = await axios.post('http://localhost:3000/register',userData)
     .then((result) =>{
-      // localStorage.setItem('token', result.data)
-      console.log(result.data)})
-    navigate('/login')
+      localStorage.setItem('tokenData', JSON.stringify(result.data));
+      console.log(result.data)
+      navigate('/login')
+    })
     .catch(err => console.log(err)
     )
   }
