@@ -1,9 +1,14 @@
 import React, { useContext } from 'react'
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import Logout from '../Pages/Logout'
+import { Navigate } from 'react-router';
 
 
 const NavBar = () => {
-  
+  let token = localStorage.getItem('tokenData');
+  let navigate = useNavigate();
+
+
   return (
     <div className="main sticky top-0 w-screen bg-white">
     <div className='main-child w-full p-4 h-fit flex flex-row items-center justify-between bg-white text-black container mx-auto '>
@@ -15,8 +20,16 @@ const NavBar = () => {
           <li>Blog</li>
         </ul>
         <div className="button flex flex-row items-center justify-center gap-10 ">
+        { token ?  
+        <>
+        <Logout/>
+        </>
+        :
+        <>
         <Link to='/login'><button className='bg-[#B60000] px-4 py-2 rounded-lg text-white cursor-pointer'>Log in</button></Link>
         <Link to='/register'><button className='bg-[#E2E2E2] px-4 py-2 rounded-lg text-black cursor-pointer'>Signup</button></Link>
+        </>
+      }
         </div>
       </div>
     </div>

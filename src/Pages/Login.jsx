@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Hero4 from '../assets/Hero-Asset/Signup.jpg';
+import Hero4 from '../assets/Hero-Asset/Signup-bgr.png';
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom';
 
@@ -27,24 +27,13 @@ const Login = () => {
       setpassword('');
       console.log(email, password);
       isLogged();
-    
-      
-      // .then((e)=>{
-      //   console.log(e.data);
-        // navigate('/profile')
-      
-      
-      
-      // .then((result) => console.log(result.data))
-      // .catch(err => console.log(err)
-      // )
     }
   return (
-    <div className='main w-screen bg-[#EBC399] flex flex-row items-center justify-center'>
-        <div className="left w-1/2">
-            <img src={Hero4} alt="hero-4_img" />
+    <div className='main w-screen h-[500px] bg-[#EBC399] flex flex-row items-center justify-center'>
+        <div className="left w-1/2  ">
+            <img className='h-[600px]' src={Hero4} alt="hero-4_img" />
         </div>
-        <div className="right w-1/2 flex flex-col gap-10 items-center justify-center bg-[#EBC399]">
+        <div className="right w-1/2  flex flex-col gap-10 items-center justify-center bg-[#EBC399]">
         <h1 className='text-4xl font-semibold text-black'>Login to FeeluP</h1>
         <form
         onSubmit={(e)=>{
